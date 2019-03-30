@@ -111,5 +111,18 @@ Capybara::Screenshot.autosave_on_failure = true# disable screenshot on failure
     click_on('Terms of Service')
     assert_text('CrowdPublish.TV Terms of Service')
   end
+  test "Join button should work if the user is not signed in " do
+    within(id: 'faqBlock') do
+      click_on(class: 'btn btn-lg btn-primary')
+    end
+    assert_text('Enter your name or the name of your organization.')
+  end
+  test "checks if the sign in link works" do
+    within(id: 'heroImage') do
+      click_on('Sign in.')
+    end
+    assert_text('Login')
+  end
+  
 end
 
