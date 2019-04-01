@@ -111,5 +111,19 @@ Capybara::Screenshot.autosave_on_failure = false# disable screenshot on failure
     click_on('Terms of Service')
     assert_text('CrowdPublish.TV Terms of Service')
   end
+  test "Test if set up future show button works in the Shows tab" do
+    signup()
+    click_on('name')
+    click_on('Control Panel')
+    click_on('Shows', match: :first)
+    click_on('Set Up Future Show')
+    assert_text('Post a New Show Time')
+      
+  end
+  test "test if the offer rewards button redirects you to the create a reward path" do
+    signup()
+    click_on('Offer Rewards', match: :first)
+    assert_text('Create A Reward')
+  end
 end
 
