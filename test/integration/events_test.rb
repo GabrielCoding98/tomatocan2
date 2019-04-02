@@ -123,7 +123,24 @@ Capybara::Screenshot.autosave_on_failure = false# disable screenshot on failure
   test "test if the offer rewards button redirects you to the create a reward path" do
     signup()
     click_on('Offer Rewards', match: :first)
-    assert_text('Create A Reward')
+    assert_text('Create a Reward')
+  end
+  test "test if user can start their live stream now from the show tab" do
+      signup()
+      click_on('name')
+      click_on('Control Panel')
+      click_on('Shows')
+      click_on('Start Your Live Show Now')
+  end
+  test "sales tab should say sales are coming soon if the user is not connected with stripe" do
+      signup()
+      click_on('name')
+      click_on('Control Panel')
+      click_on('Sales')
+      assert_text('Sales figures will be displayed on this page after you connect to Stripe.')
+  end
+  test "check is save changes on user's view profile redirects " do
+     
   end
 end
 
